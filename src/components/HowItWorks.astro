@@ -1,0 +1,51 @@
+---
+const title = "Cómo funciona";
+const description =
+  "Tres pasos simples para que tu equipo hable con libertad y tú recibas cada voz con claridad.";
+
+const steps = [
+  {
+    img: "/empleado.webp",
+    alt: "Empleado",
+    title: "Tu equipo habla con libertad",
+    text: "El anonimato les da la confianza para expresar lo que sienten y piensan sin miedo, revelando verdades que antes callaban.",
+  },
+  {
+    img: "/bufon-cartero.webp",
+    alt: "Bufón mensajero",
+    title: "El bufón transforma la crítica",
+    text: "Cada opinión viaja disfrazada, convirtiéndose en un mensaje constructivo y fácil de escuchar que llega directo a ti.",
+  },
+  {
+    img: "/rey.webp",
+    alt: "Rey",
+    title: "Tú escuchas y lideras",
+    text: "Recibes feedback claro y accionable que te guía para tomar mejores decisiones y fortalecer la cultura de tu equipo.",
+  },
+];
+---
+
+<section id="how-it-works" class="p-12 scroll-mt-16">
+  <!-- Títulos -->
+  <h2 class="font-bold text-3xl mb-4 text-center lg:text-left">{title}</h2>
+  <h3 class="text-lg mb-8 text-center lg:text-left">{description}</h3>
+
+  <!-- Grid de pasos -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+    {
+      steps.map((step) => (
+        <article class="border border-gray-200 rounded-lg overflow-hidden p-4">
+          <div class="w-full mb-4 overflow-hidden">
+            <img
+              src={step.img}
+              alt={step.alt}
+              class="w-full h-full object-contain rounded-lg"
+            />
+          </div>
+          <h4 class="font-bold text-lg mb-2">{step.title}</h4>
+          <p class="text-sm">{step.text}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+const title = "Beneficios";
+
+const description =
+  "Descubre cómo BUFONIO transforma la comunicación en tu equipo.";
+
+const benefits = [
+  {
+    title: "Voces que revelan la verdad",
+    text: "Tu equipo se expresa con libertad y confianza, entregándote información honesta que fortalece la toma de decisiones y la cultura de tu equipo.",
+  },
+  {
+    title: "Crítica convertida en guía",
+    text: "Cada comentario se transforma en un mensaje constructivo, llegando directo a ti con claridad y sin confrontaciones, como un bufón que habla con sabiduría.",
+  },
+  {
+    title: "Un reino donde la cultura florece",
+    text: "Escuchando a tu equipo descubres oportunidades para mejorar la motivación, la comunicación y el liderazgo, construyendo un ambiente laboral fuerte y productivo.",
+  },
+];
+---
+
+<section
+  id="benefits"
+  class="p-12 scroll-mt-16 flex flex-col lg:flex-row gap-x-8 gap-y-8"
+>
+  <!-- Contenido de texto -->
+  <div
+    class="w-full lg:w-2/3 max-w-5xl mx-auto text-center lg:text-left space-y-10"
+  >
+    <h2 class="font-bold text-3xl mb-4">{title}</h2>
+    <h3 class="text-lg mb-8">{description}</h3>
+
+    <div class="space-y-10">
+      {
+        benefits.map((benefit) => (
+          <div>
+            <h4 class="font-bold text-xl mb-1">&bull; {benefit.title}</h4>
+            <p class="text-sm">{benefit.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Imagen -->
+  <div class="w-full lg:w-1/3 mx-auto lg:mx-0">
+    <img
+      src="/bufon-enigma.webp"
+      alt="Bufón-enigma"
+      class="w-full h-full object-cover rounded-lg"
+    />
+  </div>
+</section>

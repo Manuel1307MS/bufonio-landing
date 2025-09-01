@@ -1,0 +1,30 @@
+---
+const headLine = "Tu oficina, una corte donde todos hablan";
+const subHeadLine =
+  "En la corte los bufones hablaban con sinceridad y hoy los empleados comparten en secreto su verdad.";
+const signupURL = "https://app.tusoftware.com/signup";
+const cta = "Empieza ahora";
+---
+
+<section id="hero" class="flex flex-col lg:flex-row items-center p-12 gap-8">
+  <!-- Texto -->
+  <div class="flex-1 text-center lg:text-left space-y-4">
+    <h1 class="font-bold text-4xl">{headLine}</h1>
+    <h2 class="text-lg">{subHeadLine}</h2>
+    <a
+      href={signupURL}
+      class="rounded inline-block hover:brightness-90 transition bg-[#c64037] text-white font-bold py-2 px-4"
+    >
+      {cta}
+    </a>
+  </div>
+
+  <!-- Imagen -->
+  <div class="flex-1">
+    <img
+      src="/bufon-landing.png"
+      alt="Bufón"
+      class="w-full h-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full mx-auto"
+    />
+  </div>
+</section>

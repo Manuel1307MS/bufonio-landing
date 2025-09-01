@@ -1,0 +1,136 @@
+---
+import Logo from "@/components/icons/Logo.astro";
+import Menu from "@/components/icons/Menu.astro";
+import Exit from "@/components/icons/Exit.astro";
+
+const navLinks = [
+  { href: "#", text: "Inicio" },
+  { href: "#how-it-works", text: "Cómo funciona" },
+  { href: "#benefits", text: "Beneficios" },
+];
+
+const loginURL = "https://app.tusoftware.com/login";
+const signupURL = "https://app.tusoftware.com/signup";
+
+const loginText = "Iniciar sesión";
+const signupText = "Registrarse";
+---
+
+<header
+  id="header-nav"
+  class="fixed top-0 bg-white py-4 px-8 w-full max-w-6xl mx-auto z-50"
+>
+  <nav class="flex items-center w-full relative">
+    <!-- Logo -->
+    <a href="#">
+      <Logo height="40" width="40" />
+    </a>
+
+    <!-- Contenedor de botones + hamburguesa móvil -->
+    <div class="flex items-center gap-2 lg:hidden ml-auto">
+      <!-- Botones móviles -->
+      <a
+        href={signupURL}
+        class="rounded bg-[#c64037] text-white font-bold py-1 px-2 hover:brightness-90 transition"
+      >
+        {signupText}
+      </a>
+
+      <!-- Botón hamburguesa -->
+      <button
+        id="menu"
+        class="flex items-center justify-center w-8 h-8"
+        aria-label="Menu"
+      >
+        <div id="icon-menu" class="cursor-pointer">
+          <Menu />
+        </div>
+        <div id="icon-exit" class="hidden cursor-pointer">
+          <Exit />
+        </div>
+      </button>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <div
+      id="mobile-dropdown"
+      class="hidden fixed inset-x-0 top-16 bg-white lg:hidden overflow-hidden transform transition-transform duration-300 ease-in-out border-b border-[rgba(128,128,128,0.3)]"
+    >
+      <div class="flex flex-col py-6">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="px-6 py-4 text-center hover:bg-[#f2f2f2] transition-colors duration-200"
+            >
+              {link.text}
+            </a>
+          ))
+        }
+        <a
+          href={loginURL}
+          class="px-6 py-4 text-center hover:bg-[#f2f2f2] transition-colors duration-200"
+        >
+          {loginText}
+        </a>
+      </div>
+    </div>
+
+    <!-- Menú central escritorio (≥lg) -->
+    <div
+      class="hidden lg:flex gap-4 absolute left-1/2 transform -translate-x-1/2"
+    >
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded hover:bg-[#f2f2f2] transition py-1 px-2"
+          >
+            {link.text}
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Botones escritorio (≥lg) -->
+    <div class="hidden lg:flex gap-4 ml-auto">
+      <a href={loginURL} class="rounded hover:bg-[#f2f2f2] py-1 px-2">
+        {loginText}
+      </a>
+      <a
+        href={signupURL}
+        class="rounded bg-[#c64037] text-white font-bold py-1 px-2 hover:brightness-90 transition"
+      >
+        {signupText}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menu");
+    const dropdown = document.getElementById("mobile-dropdown");
+    const iconOpen = document.getElementById("icon-menu");
+    const iconClose = document.getElementById("icon-exit");
+
+    if (!menuButton || !dropdown || !iconOpen || !iconClose) return;
+
+    const toggleMenu = () => {
+      dropdown.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
+    };
+
+    menuButton.addEventListener("click", toggleMenu);
+
+    dropdown.addEventListener("click", (event) => {
+      const target = (event.target as HTMLElement).closest("a");
+      if (target) {
+        dropdown.classList.add("hidden");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+      }
+    });
+  });
+</script>

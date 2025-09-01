@@ -1,0 +1,68 @@
+---
+import "@/styles/global.css";
+import "@fontsource-variable/onest";
+
+const title = "Bufonio | Feedback anónimo con humor para líderes y equipos";
+const description =
+  "Bufonio es la herramienta de feedback anónimo que transforma comentarios en mensajes cómicos con IA, ayudando a líderes y equipos a crecer con humor.";
+const keywords =
+  "feedback anónimo, software de feedback, feedback para líderes, comentarios empleados, feedback divertido, feedback con IA";
+const url = "https://bufonio.vercel.app";
+const urlImage = "/card.jpg";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${url}${urlImage}`} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${url}${urlImage}`} />
+  </head>
+  <body>
+    <div class="max-w-6xl mx-auto pt-[72px]">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Onest Variable", sans-serif;
+  }
+
+  #header-nav {
+    border-bottom: 1px solid rgba(128, 128, 128, 0);
+    animation: borde linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes borde {
+    to {
+      border-color: rgba(128, 128, 128, 0.3);
+    }
+  }
+</style>
