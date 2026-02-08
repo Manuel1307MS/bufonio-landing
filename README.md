@@ -1,47 +1,33 @@
-# Astro Starter Kit: Basics
+# Bufonio – Landing
 
-```sh
-npm create astro@latest -- --template basics
-```
+Landing page oficial de **Bufonio**, una app que transforma los comentarios anónimos de empleados en mensajes con un toque **cómico y ligero**, para que los líderes puedan leer feedback honesto de una forma más suave, distinta y humana.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## ¿Qué es Bufonio?
 
-Inside of your Astro project, you'll see the following folders and files:
+**Bufonio** es una aplicación pensada para mejorar la comunicación interna en las empresas:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- Los empleados envían comentarios **100% anónimos**.
+- Los jefes y líderes pueden leerlos sin saber quién los envió.
+- La app traduce esos comentarios a un **lenguaje cómico**, reduciendo la tensión y haciendo el feedback más digerible.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## Tecnologías utilizadas
 
-All commands are run from the root of the project, from a terminal:
+Esta landing page está construida con:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Astro**
+- **Tailwind CSS**
+- **HTML**
+- **JavaScript**
+- **Google Gemini** – Utilizada para la creación de imágenes
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-"# bufonio-landing" 
+## Funcionalidades de la landing
+
+- Presentación clara del producto **Bufonio**
+- Explicación de la idea y beneficios
+- Diseño minimalista
