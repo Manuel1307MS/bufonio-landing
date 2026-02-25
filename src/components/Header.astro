@@ -9,102 +9,84 @@ const navLinks = [
   { href: "#benefits", text: "Beneficios" },
 ];
 
-const loginURL = "https://bufonio-app.vercel.app/login";
-const signupURL = "https://bufonio-app.vercel.app/signup";
+const loginURL = "https://bufonio-app.vercel.app";
+const registerURL = "https://bufonio-app.vercel.app/register";
 
 const loginText = "Iniciar sesión";
-const signupText = "Registrarse";
+const registerText = "Registrarse";
 ---
 
-<header
-  id="header-nav"
-  class="fixed top-0 bg-white p-4 w-full max-w-6xl mx-auto z-50"
->
-  <nav class="flex items-center w-full relative">
-    <!-- Logo -->
-    <a href="#">
-      <Logo height="40" width="40" />
-    </a>
-
-    <!-- Contenedor de botones + hamburguesa móvil -->
-    <div class="flex items-center gap-2 lg:hidden ml-auto">
-      <!-- Botones móviles -->
-      <a
-        href={signupURL}
-        class="rounded bg-[#c64037] text-white font-bold py-1 px-2 hover:brightness-90 transition"
-      >
-        {signupText}
+<header id="header-nav" class="fixed top-0 left-0 right-0 w-full bg-white z-50">
+  <div class="max-w-6xl mx-auto px-4 lg:px-6 relative z-50 bg-white">
+    <nav class="flex items-center justify-between h-16 w-full relative">
+      <a href="#" class="flex-shrink-0">
+        <Logo height="40" width="40" />
       </a>
 
-      <!-- Botón hamburguesa -->
-      <button
-        id="menu"
-        class="flex items-center justify-center w-8 h-8"
-        aria-label="Menu"
+      <div
+        class="hidden lg:flex gap-2 absolute left-1/2 transform -translate-x-1/2"
       >
-        <div id="icon-menu" class="cursor-pointer">
-          <Menu />
-        </div>
-        <div id="icon-exit" class="hidden cursor-pointer">
-          <Exit />
-        </div>
-      </button>
-    </div>
-
-    <!-- Menú desplegable móvil -->
-    <div
-      id="mobile-dropdown"
-      class="hidden fixed inset-x-0 top-16 bg-white lg:hidden overflow-hidden transform transition-transform duration-300 ease-in-out border-b border-[rgba(128,128,128,0.3)]"
-    >
-      <div class="flex flex-col py-6">
         {
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="px-6 py-4 text-center hover:bg-[#f2f2f2] transition-colors duration-200"
+              class="rounded-md hover:bg-black/5 transition py-1.5 px-3 text-base font-medium"
             >
               {link.text}
             </a>
           ))
         }
+      </div>
+
+      <div class="flex items-center gap-3 ml-auto">
         <a
           href={loginURL}
-          class="px-6 py-4 text-center hover:bg-[#f2f2f2] transition-colors duration-200"
+          class="hidden lg:block rounded-md hover:bg-black/5 py-1.5 px-3 text-base font-medium"
         >
           {loginText}
         </a>
+
+        <a
+          href={registerURL}
+          class="rounded-md bg-black text-white font-bold py-1.5 px-4 text-base"
+        >
+          {registerText}
+        </a>
+
+        <button
+          id="menu"
+          class="lg:hidden flex items-center justify-center w-9 h-9 rounded-md hover:bg-[#f2f2f2] transition"
+          aria-label="Menu"
+        >
+          <div id="icon-menu"><Menu /></div>
+          <div id="icon-exit" class="hidden"><Exit /></div>
+        </button>
       </div>
+    </nav>
+  </div>
+
+  <div
+    id="mobile-dropdown"
+    class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-16"
+  >
+    <div class="flex-1 flex flex-col justify-center px-8">
+      <nav class="flex flex-col space-y-2 gap-15">
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class="text-[20px] font-medium">
+              {link.text}
+            </a>
+          ))
+        }
+      </nav>
     </div>
 
-    <!-- Menú central escritorio (≥lg) -->
-    <div
-      class="hidden lg:flex gap-4 absolute left-1/2 transform -translate-x-1/2"
-    >
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="rounded hover:bg-[#f2f2f2] transition py-1 px-2"
-          >
-            {link.text}
-          </a>
-        ))
-      }
-    </div>
-
-    <!-- Botones escritorio (≥lg) -->
-    <div class="hidden lg:flex gap-4 ml-auto">
-      <a href={loginURL} class="rounded hover:bg-[#f2f2f2] py-1 px-2">
+    <div class="p-8 flex justify-center">
+      <a href={loginURL} class="text-[20px] font-medium">
         {loginText}
       </a>
-      <a
-        href={signupURL}
-        class="rounded bg-[#c64037] text-white font-bold py-1 px-2 hover:brightness-90 transition"
-      >
-        {signupText}
-      </a>
     </div>
-  </nav>
+  </div>
 </header>
 
 <script>
@@ -113,13 +95,22 @@ const signupText = "Registrarse";
     const dropdown = document.getElementById("mobile-dropdown");
     const iconOpen = document.getElementById("icon-menu");
     const iconClose = document.getElementById("icon-exit");
+    const body = document.body;
 
     if (!menuButton || !dropdown || !iconOpen || !iconClose) return;
 
     const toggleMenu = () => {
+      const isOpening = dropdown.classList.contains("hidden");
+
       dropdown.classList.toggle("hidden");
       iconOpen.classList.toggle("hidden");
       iconClose.classList.toggle("hidden");
+
+      if (isOpening) {
+        body.style.overflow = "hidden";
+      } else {
+        body.style.overflow = "";
+      }
     };
 
     menuButton.addEventListener("click", toggleMenu);
@@ -130,6 +121,7 @@ const signupText = "Registrarse";
         dropdown.classList.add("hidden");
         iconOpen.classList.remove("hidden");
         iconClose.classList.add("hidden");
+        body.style.overflow = "";
       }
     });
   });

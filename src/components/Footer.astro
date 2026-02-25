@@ -2,6 +2,12 @@
 const date = new Date().getFullYear();
 ---
 
-<footer class="text-center py-4 px-8">
-  <p>&copy; {date} Bufonio</p>
+<footer
+  class="p-12 flex flex-col md:flex-row items-center justify-center gap-4 text-center"
+>
+  <span class="text-sm font-bold">Bufonio</span>
+  <span class="hidden md:block text-black/30">|</span>
+  <p class="text-sm text-black/80 font-medium">
+    &copy; {date} Todos los derechos reservados.
+  </p>
 </footer>

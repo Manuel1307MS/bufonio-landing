@@ -1,51 +1,69 @@
 ---
-const title = "Cómo funciona";
+const titlePart1 = "Cómo funciona";
+const titlePart2 = "paso a paso.";
 const description =
   "Tres pasos simples para que tu equipo hable con libertad y tú recibas cada voz con claridad.";
 
 const steps = [
   {
     img: "/empleado.webp",
-    alt: "Empleado",
+    alt: "Empleado expresándose",
     title: "Tu equipo habla con libertad",
-    text: "El anonimato les da la confianza para expresar lo que sienten y piensan sin miedo, revelando verdades que antes callaban.",
+    text: "Un canal 100% anónimo donde el talento comparte verdades sin miedo a represalias.",
   },
   {
     img: "/bufon-cartero.webp",
-    alt: "Bufón mensajero",
-    title: "El bufón transforma la crítica",
-    text: "Cada opinión viaja disfrazada, convirtiéndose en un mensaje constructivo y fácil de escuchar que llega directo a ti.",
+    alt: "IA Bufón procesando datos",
+    title: "La IA transforma la crítica",
+    text: "Nuestra tecnología filtra la toxicidad y convierte las quejas en consejos estratégicos e ingeniosos.",
   },
   {
     img: "/rey.webp",
-    alt: "Rey",
-    title: "Tú escuchas y lideras",
-    text: "Recibes feedback claro y accionable que te guía para tomar mejores decisiones y fortalecer la cultura de tu equipo.",
+    alt: "Líder tomando decisiones",
+    title: "Tú lideras con la verdad",
+    text: "Recibes feedback accionable para mejorar tu cultura y tomar decisiones basadas en la realidad.",
   },
 ];
 ---
 
-<section id="how-it-works" class="p-12 scroll-mt-16">
-  <!-- Títulos -->
-  <h2 class="font-bold text-3xl mb-4 text-center lg:text-left">{title}</h2>
-  <h3 class="text-lg mb-8 text-center lg:text-left">{description}</h3>
-
-  <!-- Grid de pasos -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-    {
-      steps.map((step) => (
-        <article class="border border-gray-200 rounded-lg overflow-hidden p-4">
-          <div class="w-full mb-4 overflow-hidden">
-            <img
-              src={step.img}
-              alt={step.alt}
-              class="w-full h-full object-contain rounded-lg"
-            />
-          </div>
-          <h4 class="font-bold text-lg mb-2">{step.title}</h4>
-          <p class="text-sm">{step.text}</p>
-        </article>
-      ))
-    }
+<section
+  id="how-it-works"
+  class="relative overflow-hidden p-6 md:p-12 min-h-[90vh] flex flex-col items-center justify-center bg-white"
+>
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="mb-10 max-w-4xl">
+      <h2
+        class="text-5xl md:text-7xl font-extrabold tracking-[-0.05em] leading-[0.95] text-black mb-10 flex flex-col items-center justify-center text-center md:items-start md:text-left"
+      >
+        <span class="block">{titlePart1}</span>
+        <span class="text-black/30">{titlePart2}</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      {
+        steps.map((step, index) => (
+          <article class="group relative flex flex-col items-start">
+            <div class="relative w-full aspect-[4/5] mb-6 overflow-hidden rounded-3xl transition-all duration-500 group-hover:-translate-y-2">
+              <img
+                src={step.img}
+                alt={step.alt}
+                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+              />
+              <div class="absolute top-6 left-6 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center font-bold text-xl opacity-0 transform -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                {index + 1}
+              </div>
+            </div>
+            <div class="relative w-full flex flex-col items-center justify-center text-center md:items-start md:text-left">
+              <h4 class="text-2xl md:text-3xl font-extrabold tracking-tighter text-black mb-4 leading-tight">
+                {step.title}
+              </h4>
+              <p class="text-base md:text-lg text-black/80 font-medium leading-relaxed balance">
+                {step.text}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>

@@ -1,30 +1,42 @@
 ---
-const headLine = "Tu oficina, una corte donde todos hablan";
+import ArrowIcon from "./icons/ArrowIcon.astro";
+
+const headLinePart1 = "Escucha la verdad de tu equipo sin el drama ";
+const headLinePart2 = "de la oficina";
 const subHeadLine =
-  "En la corte los bufones hablaban con sinceridad y hoy los empleados comparten en secreto su verdad.";
-const signupURL = "https://bufonio-app.vercel.app/signup";
+  "La plataforma de feedback anónimo que usa IA para convertir críticas en consejos estratégicos, mejorando la comunicación y la confianza de tu equipo.";
+const registerURL = "https://bufonio-app.vercel.app/register";
 const cta = "Empieza ahora";
 ---
 
-<section id="hero" class="flex flex-col lg:flex-row items-center p-12 gap-8">
-  <!-- Texto -->
-  <div class="flex-1 text-center lg:text-left space-y-4">
-    <h1 class="font-bold text-4xl">{headLine}</h1>
-    <h2 class="text-lg">{subHeadLine}</h2>
-    <a
-      href={signupURL}
-      class="rounded inline-block hover:brightness-90 transition bg-[#c64037] text-white font-bold py-2 px-4"
+<section
+  id="hero"
+  class="relative overflow-hidden p-6 md:p-12 min-h-[90vh] flex flex-col items-center justify-center bg-white"
+>
+  <div class="relative z-10 max-w-6xl text-center flex flex-col items-center">
+    <h1
+      class="text-6xl md:text-[92px] font-extrabold tracking-[-0.05em] leading-[0.95] text-black mb-8 max-w-4xl"
     >
-      {cta}
-    </a>
-  </div>
+      <span class="block">{headLinePart1}</span>
+      <span class="block text-black/30 bg-clip-text">{headLinePart2}</span>
+    </h1>
 
-  <!-- Imagen -->
-  <div class="flex-1">
-    <img
-      src="/bufon-landing.webp"
-      alt="Bufón"
-      class="w-full h-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full mx-auto"
-    />
+    <p
+      class="text-lg md:text-xl text-black/80 font-medium leading-relaxed max-w-2xl mb-12 balance"
+    >
+      {subHeadLine}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4">
+      <a
+        href={registerURL}
+        class="group relative bg-black text-white px-10 py-4 rounded-xl font-bold text-lg shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
+      >
+        <span class="relative z-10 flex items-center gap-2">
+          {cta}
+          <ArrowIcon />
+        </span>
+      </a>
+    </div>
   </div>
 </section>
